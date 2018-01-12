@@ -1,6 +1,5 @@
 .mainDiv{
   width:100%;
-  position:fixed !important;
   position:absolute;
   top:0;
   right:0;
@@ -11,4 +10,14 @@
 .searchInputDiv{
   margin:auto;
   width:fit-content;
+}
+
+.drink{
+  width: 30%;
+  margin: auto;
+  border: solid 2px black;
+}
+
+.drink img{
+  width: 100%;
 }
