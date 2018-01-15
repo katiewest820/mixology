@@ -6,6 +6,7 @@ import SearchInput from '../searchInput/searchInput';
 import Header from '../header/header';
 import Help from '../help/help';
 import Classics from '../classics/classics';
+import SearchResults from '../searchResults/searchResults';
 
 export default class Dashboard extends React.Component{
   constructor(props){
@@ -17,21 +18,23 @@ export default class Dashboard extends React.Component{
       searchInput: '',
       drinks: []
     }
+    
     console.log(this.state)
   }
 
   grabSubmittedInput(submittedSearchTerm){
-    let self = this;
     this.setState({submittedSearchTerm})
+    
+    let self = this;
     axios.get(`http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${submittedSearchTerm}`)
       .then(function (response) {
       console.log(response);
       self.setState({drinks: response.data.drinks})
+      
       })
     .catch(function (error) {
       console.log(error);
     });
-
   }
 
   grabEnteredInput(searchInput){
@@ -53,23 +56,6 @@ export default class Dashboard extends React.Component{
    closeClassics(classicsVisible){
     this.setState({classicsVisible: false});
   };
-
-
-  componentDidUpdate(){
-    console.log('I did update')
-  }
-
-  renderDrinks(){
-    let drinks = this.state.drinks.map((drink, index) => {
-       return (
-        <div key={index} className="drink">
-          <div>{drink.strDrink}</div>
-          <img src={drink.strDrinkThumb}/>
-        </div>      
-      )
-    })
-      return drinks
-  }
 
   render(){
     console.log('I am rendering')
@@ -94,7 +80,7 @@ export default class Dashboard extends React.Component{
           <Header value={this.state} onClickHelp={() => this.openHelp(true)} onClickClassics={() => this.openClassics(true)}/>
             <div className="searchInputDiv">
               <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
-            {this.renderDrinks(this)}
+              <SearchResults drinks={this.state.drinks} />
             </div>
           </main>
         )

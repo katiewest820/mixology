@@ -7,7 +7,7 @@ export default function Header(props) {
   return(
     <header>
       <div onClick={props.onClickHelp} className="helpDiv">Help</div>
-      <div onClick={props.onClickClassics}className="browseClassics">Browse Classics</div>
+      <div onClick={props.onClickClassics} className="browseClassics">Browse Classics</div>
     </header>
     )
 
