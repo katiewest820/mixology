@@ -1,9 +1,58 @@
 .drinkResultsGrid{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  justify-items:center;
+  padding: 4% 15%;
+  margin:auto;
   grid-gap: 20px;
+  width: 100%;
+  border-top: 3px black solid;
+}
+
+.drinkResultsGrid div{
+  position: relative;
 }
 
 .drinkResultsGrid img{
+    width: 200px;
+}
+
+.nameOfDrink{
   width: 200px;
+  position: absolute;
+  margin: 0;
+  bottom: 2%;
+  color:white;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: black;
+  opacity: .6;
+  box-sizing: border-box;
+  min-height: 60px;
+  max-height: fit-content;
+  padding: 15px;
+}
+
+.nameOfDrink:hover{
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  color: #f39c12;
+}
+
+@media (min-width: 1200px){
+
+  .drinkResultsGrid{
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 4% 20%;
+  }
+
+  .nameOfDrink{
+    width: 250px;
+    font-size: 25px;
+  }
+
+  .drinkResultsGrid img{
+    width: 250px;
+  }
+
 }

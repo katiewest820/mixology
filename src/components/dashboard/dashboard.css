@@ -12,12 +12,10 @@
   width:fit-content;
 }
 
-.drink{
-  width: 30%;
+.errorMsgDiv{
+  width: 50%;
   margin: auto;
-  border: solid 2px black;
+  margin-top: 10%;
+  border: solid 3px black;
 }
 
-.drink img{
-  width: 100%;
-}

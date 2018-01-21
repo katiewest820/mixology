@@ -2,6 +2,7 @@ import React from 'react';
 import './dashboard.css';
 import axios from 'axios';
 
+
 import SearchInput from '../searchInput/searchInput';
 import Header from '../header/header';
 import Help from '../help/help';
@@ -16,7 +17,9 @@ export default class Dashboard extends React.Component{
       classicsVisible: false,
       submittedSearchTerm: '',
       searchInput: '',
-      drinks: []
+      drinks: [],
+      errorMsg: false
+
     }
     
     console.log(this.state)
@@ -24,17 +27,41 @@ export default class Dashboard extends React.Component{
 
   grabSubmittedInput(submittedSearchTerm){
     this.setState({submittedSearchTerm})
-    
     let self = this;
     axios.get(`http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${submittedSearchTerm}`)
-      .then(function (response) {
-      console.log(response);
-      self.setState({drinks: response.data.drinks})
-      
+      .then(function (ingredientResponse) {
+        console.log(ingredientResponse);
+        if(!ingredientResponse.data.drinks){
+          self.grabOtherSubmittedInput(submittedSearchTerm)
+          return
+        }
+        self.setState({drinks: ingredientResponse.data.drinks})
       })
     .catch(function (error) {
       console.log(error);
     });
+  }
+
+grabOtherSubmittedInput(submittedSearchTerm){
+  let self = this;
+  axios.get(`http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${submittedSearchTerm}`)
+    .then(function (drinkNameResponse) {
+      console.log(drinkNameResponse);
+      if(!drinkNameResponse.data.drinks){
+        self.setState({errorMsg: true})
+        console.log(self.state.errorMsg)
+        setTimeout(() => {self.fadeOutErrorMsg()}, 3000)
+        return
+      }
+      self.setState({drinks: drinkNameResponse.data.drinks})
+    })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+  fadeOutErrorMsg(){
+    this.setState({errorMsg:false})
   }
 
   grabEnteredInput(searchInput){
@@ -59,16 +86,27 @@ export default class Dashboard extends React.Component{
 
   render(){
     console.log('I am rendering')
+    let errorMsg = <div className="errorMsgDiv"><h1>No results found. Please try again</h1></div>
     
-
-    if(this.state.helpDivVisible === true){
+    if(this.state.errorMsg === true){
+      return(
+        <main className="mainDiv">
+          <Header value={this.state} onClickHelp={() => this.openHelp(true)} onClickClassics={() => this.openClassics(true)}/>
+          <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
+          <SearchResults drinks={this.state.drinks} />  
+            {errorMsg}
+        </main>
+      )
+    }
+    else if(this.state.helpDivVisible === true){
       return (
         <main className="mainDiv">
+
           <Help value={this.state.helpDivVisible} onClick={() => this.closeHelp(false)}/>
         </main>
       )
     }
-    if(this.state.classicsVisible === true){
+    else if(this.state.classicsVisible === true){
       return (
         <main className="mainDiv">
           <Classics value={this.state.classicsVisible} onClick={() => this.closeClassics(false)}/>
@@ -77,11 +115,9 @@ export default class Dashboard extends React.Component{
     }else{
         return(
           <main className="mainDiv">
-          <Header value={this.state} onClickHelp={() => this.openHelp(true)} onClickClassics={() => this.openClassics(true)}/>
-            <div className="searchInputDiv">
-              <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
-              <SearchResults drinks={this.state.drinks} />
-            </div>
+            <Header value={this.state} onClickHelp={() => this.openHelp(true)} onClickClassics={() => this.openClassics(true)}/>
+            <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
+            <SearchResults drinks={this.state.drinks} />
           </main>
         )
     }

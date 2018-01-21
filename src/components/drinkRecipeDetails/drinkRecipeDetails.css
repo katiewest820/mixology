@@ -1,0 +1,49 @@
+.shadowBox{
+  position: relative; 
+  width: 70%;
+  margin:auto;
+  padding: 30px;
+  border: solid 3px black;
+}
+
+.shadowBox div{
+  text-align: center;
+}
+
+.closeDrinkRecipeDetails{
+  position: absolute; 
+  top:3%;
+  right:3%;
+}
+
+.drinkName{
+  margin: 10px;
+  text-decoration: underline;
+}
+
+.drinkIngredients{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: fit-content;
+  grid-column-gap: 20px;
+  margin: auto;
+}
+
+.drinkIngredients h2{
+  margin:0;
+  grid-column: span 2;
+}
+
+.drinkInstructions{
+  width: 80%;
+  margin:auto;
+}
+
+@media (min-width: 640px){
+  .shadowBox{
+    width: 425px;
+    font-size: 140%;
+    margin-bottom: 3%
+
+  }
+}
