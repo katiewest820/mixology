@@ -1,14 +1,14 @@
 import React from 'react';
 import './header.css';
+import {Link} from 'react-router-dom';
 
 
 export default function Header(props) {
   console.log(props)
   return(
     <header>
-      <div onClick={props.onClickHelp} className="helpDiv">Help</div>
-      <div onClick={props.onClickClassics} className="browseClassics">Browse Classics</div>
+      <Link to="/help" className="helpDiv">Help</Link>
+      <Link to="/classics" className="browseClassics">Classics</Link>
     </header>
     )
-
 } 

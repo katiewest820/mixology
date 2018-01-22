@@ -9,8 +9,8 @@ export default class Main extends React.Component{
     return(
       <main>
         <Switch>
-          {/*<Route exact path="/" component={Dashboard} />
-          <Route path="/help" component={Help} />*/}
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/help" component={Help} />
           <Route path="/classics" component={Classics} />
         </Switch>
       </main>

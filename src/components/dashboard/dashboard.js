@@ -12,18 +12,10 @@ export default class Dashboard extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      //helpDivVisible: false,
-      //classicsVisible: false,
       submittedSearchTerm: '',
       searchInput: '',
       drinks: [],
       errorMsg: false,
-      margaritas: [],
-      mojitos: [],
-      martinis: [],
-      daiquiri: [],
-      manhattan: []
-
     }
     
     console.log(this.state)
@@ -74,62 +66,12 @@ grabOtherSubmittedInput(submittedSearchTerm){
     this.setState({searchInput})
   }
 
-  // openHelp(helpVisible){
-  //   this.setState({helpDivVisible: true});
-  // };
-
-  // closeHelp(helpVisible){
-  //   this.setState({helpDivVisible: false});
-  // };
-
-  // openClassics(classicsVisible){
-  //   this.setState({classicsVisible: true});
-  // };
-
-  //  closeClassics(classicsVisible){
-  //   this.setState({classicsVisible: false});
-  // };
-
-  componentDidMount(){
-      let self = this;
-      axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-      .then(function (response) {
-      self.setState({margaritas: response.data.drinks})
-      console.log(self.state.margaritas)
-      })
-      axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=mojito')
-      .then(function (response) {
-      self.setState({mojitos: response.data.drinks})
-      console.log(self.state.mojitos)
-      })
-      axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=martini')
-      .then(function (response) {
-      self.setState({martinis: response.data.drinks})
-      console.log(self.state.martinis)
-      })
-      axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=daiquiri')
-      .then(function (response) {
-      self.setState({daiquiri: response.data.drinks})
-      console.log(self.state.daiquiri)
-      })
-      axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=manhattan')
-      .then(function (response) {
-      self.setState({manhattan: response.data.drinks})
-      console.log(self.state.manhattan)
-      })
-      .catch(function (error) {
-      console.log(error);
-      });
-    }
-
   render(){
-    console.log('I am rendering')
     let errorMsg = <div className="errorMsgDiv"><h1>No results found. Please try again</h1></div>
-    
     if(this.state.errorMsg === true){
       return(
         <main className="mainDiv">
-          {/*<Header value={this.state} onClickHelp={() => this.openHelp(true)} onClickClassics={() => this.openClassics(true)}/>*/}
+          <Header />
           <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
           <div className="drinkResultsGridContainer">
             {errorMsg}
@@ -137,28 +79,14 @@ grabOtherSubmittedInput(submittedSearchTerm){
         </main>
       )
     }
-    // else if(this.state.helpDivVisible === true){
-    //   return (
-    //     <main className="mainDiv">
-    //       <Help value={this.state.helpDivVisible} onClick={() => this.closeHelp(false)}/>
-    //     </main>
-    //   )
-    // }
-    // else if(this.state.classicsVisible === true){
-    //   return (
-    //     <main className="mainDiv">
-    //       <Classics value={this.state} onClick={() => this.closeClassics(false)} />
-    //     </main>
-    //   )
-    //}
     else{
-        return(
-          <main className="mainDiv">
-            {/*<Header value={this.state} onClickHelp={() => this.openHelp(true)} onClickClassics={() => this.openClassics(true)}/>*/}
-            <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
-            <SearchResults drinks={this.state.drinks} />
-          </main>
-        )
+      return(
+        <main className="mainDiv">
+          <Header />
+          <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
+          <SearchResults drinks={this.state.drinks} />
+        </main>
+      )
     }
   }
 }

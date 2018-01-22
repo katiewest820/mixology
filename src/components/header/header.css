@@ -3,6 +3,7 @@ header{
   position: relative;
   margin: 15px;
   margin-bottom: 0px;
+  z-index: 99;
 }
 
 .helpDiv, .browseClassics, .clearPage{

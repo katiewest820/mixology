@@ -1,3 +1,14 @@
 .classicDrinkImg{
   width: 200px;
 }
+
+.classicsInfoDiv{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px))
+}
+
+@media (min-width: 1200px){
+  .classicDrinkImg{
+    width: 250px;
+}
+}
