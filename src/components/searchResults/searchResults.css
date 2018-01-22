@@ -1,11 +1,20 @@
+.drinkResultsGridContainer{
+  width: 100;
+  min-height: 500px;
+  max-height: fit-content;
+  border-top: 3px black solid;
+  margin:auto;
+  margin-top: 65px;
+}
+
 .drinkResultsGrid{
   display: grid;
-  justify-items:center;
-  padding: 4% 15%;
-  margin:auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+  justify-content:center;
+  justify-items: center;
+  margin: 5%;
   grid-gap: 20px;
-  width: 100%;
-  border-top: 3px black solid;
+  
 }
 
 .drinkResultsGrid div{
@@ -42,8 +51,13 @@
 @media (min-width: 1200px){
 
   .drinkResultsGrid{
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 4% 20%;
+    margin:auto;
+    padding: 40px 0;
+    width: 70%;
+  }
+
+  .drinkResultsGridContainer{
+    margin-top: 20px;
   }
 
   .nameOfDrink{

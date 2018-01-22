@@ -1,6 +1,6 @@
 .inputDiv{
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 5fr;
   width: 90%;
   max-width: 320px;
   margin:auto;
@@ -13,6 +13,7 @@
 
 span{
   display: grid;
+  grid-gap: 5px;
   grid-template-columns: 3fr 1fr;
 }
  
@@ -46,9 +47,15 @@ span{
     transition: all 1s;
 } 
 
+.inputIngredient:focus{
+  outline: none;
+  border-bottom: solid 3px #f39c12;
+  
+}
+
 /*button slideout animations*/
 .inputIngredientBtn{
-  height: 35px;
+  height: 40px;
   border-radius: 5px;
 }
 
@@ -69,9 +76,20 @@ span{
   opacity: 1.0;
   transition: all 1s;
 }
+
+.inputIngredientBtn:hover{
+  color: #f39c12;
+  cursor: pointer;
+  border: solid 3px #f39c12;
+}
  
 .searchIcon{
   justify-self: center;
+}
+
+.searchIcon:hover{
+  color: #f39c12;
+  cursor: pointer;
 }
 
 @media (min-width: 1100px){

@@ -17,9 +17,8 @@ export default class SearchInput extends React.Component{
 
   onClick(targetValue){
     this.props.onClick(targetValue);
-    this.toggleInputVisible(this.state.inputVisible)  
+    this.toggleInputVisible(this.state.inputVisible)   
   }
-  
 
   render(){
       let myInput;
@@ -32,10 +31,10 @@ export default class SearchInput extends React.Component{
       return(
         <div className="inputDiv">
           <i className="fa fa-search fa-3x searchIcon" aria-hidden="true" value={this.state.inputVisible} onClick={value => this.toggleInputVisible(value)}></i>
-          <ReactCSSTransitionGroup transitionName="switch" >
-            {myInput}
-            {myButton}
-          </ReactCSSTransitionGroup>
+            <ReactCSSTransitionGroup transitionName="switch" >
+              {myInput}
+              {myButton}
+            </ReactCSSTransitionGroup>
         </div>
       )
   }

@@ -19,3 +19,10 @@
   border: solid 3px black;
 }
 
+@media (min-width: 1200px){
+  
+  .errorMsgDiv{
+    margin-top: 5%;
+  }
+}
+

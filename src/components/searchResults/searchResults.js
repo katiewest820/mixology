@@ -54,7 +54,11 @@ closeDrinkRecipeDetails(clickedDrink){
         )
     }else{
       return(
-        <div className="drinkResultsGrid" onClick={(value) => this.showDrinkDetails(value)} value={this.state.drinkDetailsVisible}>{drinks}</div>
+        <div className="drinkResultsGridContainer">
+          <div className="drinkResultsGrid" onClick={(value) => this.showDrinkDetails(value)} value={this.state.drinkDetailsVisible}>
+            {drinks}
+          </div>
+        </div>  
       )
     }
   }
