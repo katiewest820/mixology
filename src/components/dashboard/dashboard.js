@@ -4,8 +4,6 @@ import axios from 'axios';
 
 import SearchInput from '../searchInput/searchInput';
 import Header from '../header/header';
-//import Help from '../help/help';
-//import Classics from '../classics/classics';
 import SearchResults from '../searchResults/searchResults';
 
 export default class Dashboard extends React.Component{
@@ -24,6 +22,13 @@ export default class Dashboard extends React.Component{
   grabSubmittedInput(submittedSearchTerm){
     this.setState({submittedSearchTerm})
     let self = this;
+    if(!submittedSearchTerm){
+      self.setState({errorMsg: true})
+        console.log(self.state.errorMsg)
+        setTimeout(() => {self.fadeOutErrorMsg()}, 3000)
+        return
+      }
+  
     axios.get(`http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${submittedSearchTerm}`)
       .then(function (ingredientResponse) {
         console.log(ingredientResponse);
@@ -67,7 +72,7 @@ grabOtherSubmittedInput(submittedSearchTerm){
   }
 
   render(){
-    let errorMsg = <div className="errorMsgDiv"><h1>No results found. Please try again</h1></div>
+    let errorMsg = <h1 className="errorMsg">No results found. Please try again</h1>
     if(this.state.errorMsg === true){
       return(
         <main className="mainDiv">
@@ -80,13 +85,13 @@ grabOtherSubmittedInput(submittedSearchTerm){
       )
     }
     else{
-      return(
-        <main className="mainDiv">
-          <Header />
-          <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
-          <SearchResults drinks={this.state.drinks} />
-        </main>
-      )
+        return(
+          <main className="mainDiv">
+            <Header />
+            <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
+            <SearchResults drinks={this.state.drinks} />
+          </main>
+        )
     }
   }
 }

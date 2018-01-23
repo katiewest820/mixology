@@ -12,17 +12,21 @@
   width:fit-content;
 }
 
-.errorMsgDiv{
-  width: 50%;
-  margin: auto;
-  margin-top: 10%;
-  border: solid 3px black;
+.errorMsg{
+  text-align: center;
+  display: block;
+  margin:auto;
+  padding-top: 20%;
+  font-size: 25px;
+  width: 80%;
+  color: white;
 }
 
 @media (min-width: 1200px){
   
-  .errorMsgDiv{
-    margin-top: 5%;
+  .errorMsg{
+    padding-top: 15%;
+    font-size: 35px;
   }
 }
 

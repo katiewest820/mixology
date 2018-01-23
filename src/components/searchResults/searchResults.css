@@ -2,9 +2,10 @@
   width: 100;
   min-height: 500px;
   max-height: fit-content;
-  border-top: 3px black solid;
+  background-color: black;
   margin:auto;
-  margin-top: 65px;
+  margin-top: 100px;
+  min-height: -webkit-fill-available;
 }
 
 .drinkResultsGrid{
@@ -14,7 +15,8 @@
   justify-items: center;
   margin: 5%;
   grid-gap: 20px;
-  
+  padding: 40px 0;
+
 }
 
 .drinkResultsGrid div{
@@ -29,11 +31,11 @@
   width: 200px;
   position: absolute;
   margin: 0;
-  bottom: 2%;
-  color:white;
+  bottom: 1%;
+  color:black;
   font-weight: bold;
   font-size: 20px;
-  background-color: black;
+  background-color: white;
   opacity: .6;
   box-sizing: border-box;
   min-height: 60px;
@@ -48,11 +50,10 @@
   color: #f39c12;
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1150px){
 
   .drinkResultsGrid{
     margin:auto;
-    padding: 40px 0;
     width: 70%;
   }
 
