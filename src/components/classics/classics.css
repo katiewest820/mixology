@@ -2,9 +2,22 @@
   width: 200px;
 }
 
+.backToHome{
+  display: block;
+  margin:auto;
+  padding: 20px;
+  color: white;
+  border: solid 3px white;
+}
+
 .classicsInfoDiv{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 300px))
+  width: 100;
+  min-height: 500px;
+  max-height: fit-content;
+  background-color: black;
+  margin:auto;
+  padding-top: 5%;
+  min-height: -webkit-fill-available;
 }
 
 @media (min-width: 1200px){

@@ -1,0 +1,46 @@
+.slideshowDiv{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+  justify-content: center;
+}
+
+.slideshowDiv{
+  margin:0;
+  text-align: center;
+  align-self: end;
+}
+
+.slick-slider{
+  display: grid;
+  grid-template-columns: 23% 60% 17%
+}
+
+.slick-slider button{
+  margin:auto;
+  padding: 10px;
+  color: white;
+  border: solid 2px white;
+}
+
+.slick-list{
+  height: 400px;
+  width: 350px;
+  margin:auto;
+}
+
+.slick-slide{
+  width: 700px;
+}
+.slick-slide img{
+  height: 300px;
+  
+}
+.slick-track{
+  margin-top: 50px;
+}
+
+.slick-slide .nameOfDrink{
+  width: 300px;
+  bottom: 0%;
+
+}

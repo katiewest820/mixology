@@ -2,6 +2,7 @@ import React from 'react';
 import './classics.css';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import Slideshow from '../slideshow/slideshow';
 
 export default class Classics extends React.Component{
   constructor(props){
@@ -49,78 +50,63 @@ export default class Classics extends React.Component{
 
   render(){
     
-    let margaritas = this.state.margaritas.map((drink, index) => {
-       return (
-        <div key={index}>
-          <h3>{drink.strDrink}</h3>
-          <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-        </div>
-       )
-    })
-    let mojitos = this.state.mojitos.map((drink, index) => {
-       return (
-        <div key={index}>
-          <h3>{drink.strDrink}</h3>
-          <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-        </div>
-       )
-    })
-    let martinis = this.state.martinis.map((drink, index) => {
-       return (
-        <div key={index}>
-          <h3>{drink.strDrink}</h3>
-          <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-        </div>
-       )
-    })
-    let daiquiris = this.state.daiquiris.map((drink, index) => {
-       return (
-        <div key={index}>
-          <h3>{drink.strDrink}</h3>
-          <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-        </div>
-       )
-    })
-    let manhattans = this.state.manhattans.map((drink, index) => {
-       return (
-        <div key={index}>
-          <h3>{drink.strDrink}</h3>
-          <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-        </div>
-       )
-    })
+    // let margaritas = this.state.margaritas.map((drink, index) => {
+    //    return (
+    //     <div key={index}>
+    //       <h3>{drink.strDrink}</h3>
+    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
+    //     </div>
+    //    )
+    // })
+    // let mojitos = this.state.mojitos.map((drink, index) => {
+    //    return (
+    //     <div key={index}>
+    //       <h3>{drink.strDrink}</h3>
+    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
+    //     </div>
+    //    )
+    // })
+    // let martinis = this.state.martinis.map((drink, index) => {
+    //    return (
+    //     <div key={index}>
+    //       <h3>{drink.strDrink}</h3>
+    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
+    //     </div>
+    //    )
+    // })
+    // let daiquiris = this.state.daiquiris.map((drink, index) => {
+    //    return (
+    //     <div key={index}>
+    //       <h3>{drink.strDrink}</h3>
+    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
+    //     </div>
+    //    )
+    // })
+    // let manhattans = this.state.manhattans.map((drink, index) => {
+    //    return (
+    //     <div key={index}>
+    //       <h3>{drink.strDrink}</h3>
+    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
+    //     </div>
+    //    )
+    // })
 
-  if(this.state.margaritas.length > 0 && this.state.mojitos.length > 0){
+  if(this.state.margaritas.length > 0 
+    && this.state.mojitos.length > 0 
+    && this.state.martinis.length > 0 
+    && this.state.daiquiris.length > 0
+    && this.state.manhattans.length > 0){
+    console.log(this.state)
     return(
       <div className="classicsInfoDiv" >
-        <div>
-          <h1>Margaritas</h1>
-          {margaritas}
-        </div>
-        <div>
-          <h1>Mojitos</h1>
-          {mojitos}
-        </div>
-        <div>
-          <h1>Martinis</h1>
-          {martinis}
-        </div>
-        <div>
-          <h1>Daiquiris</h1>
-          {daiquiris}
-        </div>
-        <div>
-          <h1>Manhattans</h1>
-          {manhattans}
-        </div>
-        <Link to="/"><button>Back to Home</button></Link>
+      <Slideshow drinks={this.state}/>
+        <Link to="/"><button className="backToHome">Back to Home</button></Link>
       </div>
     )
-  } 
-    else{
+    }else{
       return(
         <div className="classicsInfoDiv" >
-          <Link to="/"><button>Back to Home</button></Link>
+          <Link to="/"><button className="backToHome">Back to Home</button></Link>
         </div>
       )
     }

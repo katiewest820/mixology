@@ -16,10 +16,10 @@ shouldComponentUpdate(nextProps, nextState){
   return nextProps.drinks.length > 0;
 }
   
-showDrinkDetails(drinkDetailsVisible, event){
-  console.log('yeahhhhh')
-  this.setState({drinkDetailsVisible: true})
-}
+// showDrinkDetails(drinkDetailsVisible, event){
+//   console.log('yeahhhhh')
+//   //this.setState({drinkDetailsVisible: true})
+//}
 
 grabId(myId){
   console.log(myId)
@@ -48,14 +48,16 @@ closeDrinkRecipeDetails(clickedDrink){
     })
     if(this.state.clickedDrink !== ''){
       return (
-        <div className="shadowBox">
-          <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeDrinkRecipeDetails(clickedDrink)}/>
-        </div>
+        <div className="drinkResultsGridContainer">
+          <div className="shadowBox">
+            <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeDrinkRecipeDetails(clickedDrink)}/>
+          </div>
+        </div>  
         )
     }else{
       return(
         <div className="drinkResultsGridContainer">
-          <div className="drinkResultsGrid" onClick={(value) => this.showDrinkDetails(value)} value={this.state.drinkDetailsVisible}>
+          <div className="drinkResultsGrid" > {/*onClick={(value) => this.showDrinkDetails(value)} value={this.state.drinkDetailsVisible}>*/}
             {drinks}
           </div>
         </div>  
