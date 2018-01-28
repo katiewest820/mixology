@@ -40,7 +40,7 @@ export default class DrinkRecipeDetails extends React.Component{
       return <p key={index}>{qua}</p>
     })
     return(
-      <div>
+      <div className="drinkDetailsDiv">
         <i className="fa fa-times closeDrinkRecipeDetails" aria-hidden="true" onClick={this.props.onClick}></i>
         <h1 className="drinkName">{this.props.clickedDrink.strDrink}</h1>
         <div className="drinkIngredients">

@@ -1,20 +1,19 @@
-.shadowBox{
+.drinkDetailsDiv{
   position: relative; 
   width: 70%;
   margin:auto;
+  margin-bottom: 5%;
+  margin-top: 5%;
   padding: 30px;
   border: solid 3px white;
   color: white;
-}
-
-.shadowBox div{
   text-align: center;
 }
 
 .closeDrinkRecipeDetails{
   position: absolute; 
   top:3%;
-  right:3%;
+  right:9%;
   color: white;
 }
 
@@ -42,10 +41,13 @@
 }
 
 @media (min-width: 640px){
-  .shadowBox{
+  .drinkDetailsDiv{
     width: 425px;
     font-size: 140%;
-    margin-bottom: 3%
+    
+  }
 
+  .closeDrinkRecipeDetails{
+    right:3%;
   }
 }

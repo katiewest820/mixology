@@ -49,9 +49,9 @@ closeDrinkRecipeDetails(clickedDrink){
     if(this.state.clickedDrink !== ''){
       return (
         <div className="drinkResultsGridContainer">
-          <div className="shadowBox">
+          {/*<div className="shadowBox">*/}
             <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeDrinkRecipeDetails(clickedDrink)}/>
-          </div>
+          {/*</div>*/}
         </div>  
         )
     }else{

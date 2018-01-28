@@ -6,6 +6,8 @@
   margin:auto;
   margin-top: 100px;
   min-height: -webkit-fill-available;
+  padding: 10%;
+  min-width: fit-content;
 }
 
 .drinkResultsGrid{
@@ -59,6 +61,7 @@
 
   .drinkResultsGridContainer{
     margin-top: 20px;
+    padding: 100px;
   }
 
   .nameOfDrink{
