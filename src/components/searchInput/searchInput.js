@@ -24,10 +24,9 @@ export default class SearchInput extends React.Component{
       let myInput;
       let myButton;
       if(this.state.inputVisible){
-        myInput = <input className="inputIngredient" value={this.props.value.searchInput} onChange={event => this.props.onChange(event.target.value)} type="text" placeholder="Ingredient/Drink Name"/>
+        myInput = <input className="inputIngredient" value={this.props.value.searchInput} onChange={event => this.props.onChange(event.target.value)} type="text" placeholder="Ingredient or Drink Name"/>
         myButton = <button className="inputIngredientBtn" value={this.props.value.searchInput} onClick={event => this.onClick(event.target.value)} >Submit</button>
       }
-
       return(
         <div className="inputDiv">
           <i className="fa fa-search fa-3x searchIcon" aria-hidden="true" value={this.state.inputVisible} onClick={value => this.toggleInputVisible(value)}></i>

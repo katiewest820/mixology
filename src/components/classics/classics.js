@@ -49,60 +49,18 @@ export default class Classics extends React.Component{
     }
 
   render(){
-    
-    // let margaritas = this.state.margaritas.map((drink, index) => {
-    //    return (
-    //     <div key={index}>
-    //       <h3>{drink.strDrink}</h3>
-    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-    //     </div>
-    //    )
-    // })
-    // let mojitos = this.state.mojitos.map((drink, index) => {
-    //    return (
-    //     <div key={index}>
-    //       <h3>{drink.strDrink}</h3>
-    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-    //     </div>
-    //    )
-    // })
-    // let martinis = this.state.martinis.map((drink, index) => {
-    //    return (
-    //     <div key={index}>
-    //       <h3>{drink.strDrink}</h3>
-    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-    //     </div>
-    //    )
-    // })
-    // let daiquiris = this.state.daiquiris.map((drink, index) => {
-    //    return (
-    //     <div key={index}>
-    //       <h3>{drink.strDrink}</h3>
-    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-    //     </div>
-    //    )
-    // })
-    // let manhattans = this.state.manhattans.map((drink, index) => {
-    //    return (
-    //     <div key={index}>
-    //       <h3>{drink.strDrink}</h3>
-    //       <img className="classicDrinkImg" src={drink.strDrinkThumb} />
-    //     </div>
-    //    )
-    // })
-
-  if(this.state.margaritas.length > 0 
-    && this.state.mojitos.length > 0 
-    && this.state.martinis.length > 0 
-    && this.state.daiquiris.length > 0
-    && this.state.manhattans.length > 0){
+    if(this.state.margaritas.length > 0 
+      && this.state.mojitos.length > 0 
+      && this.state.martinis.length > 0 
+      && this.state.daiquiris.length > 0
+      && this.state.manhattans.length > 0){
     console.log(this.state)
-    return(
-      <div className="classicsInfoDiv" >
-      <Slideshow drinks={this.state}/>
-        <Link to="/"><button className="backToHome">Back to Home</button></Link>
-      </div>
-    )
+      return(
+        <div className="classicsInfoDiv" >
+          <Slideshow drinks={this.state}/>
+          <Link to="/"><button className="backToHome">Back to Home</button></Link>
+        </div>
+      )
     }else{
       return(
         <div className="classicsInfoDiv" >

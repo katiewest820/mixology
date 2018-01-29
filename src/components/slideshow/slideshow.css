@@ -4,11 +4,10 @@
   justify-content: center;
   text-align: center;
   align-self: end;
-  
   margin:auto;
 }
 
-.slick-slider{
+ .slick-slider{
   display: grid;
   grid-template-columns: 20% 60% 20%
 }
@@ -30,22 +29,38 @@
   margin:auto;
 }
 
-.slick-slide{
+.slideshowDiv .slick-slide{
   width: 700px;
 }
 
-.slick-track{
+.slideshowDiv .slick-track{
   margin-top: 50px;
 }
 
-.slick-slide .nameOfDrink{
+.slideshowDiv .slick-slide .nameOfDrink{
   width: 200px;
   bottom: 0%;
 }
 
-.slideShowImg{
+.slideshowDiv .slideShowImg{
   width: 200px;
   height: 200px;
+}
+
+.slideshowDiv .nameOfDrink{
+  width: 200px;
+  position: absolute;
+  margin: 0;
+  bottom: 1%;
+  color:black;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: white;
+  opacity: .6;
+  box-sizing: border-box;
+  min-height: 60px;
+  max-height: fit-content;
+  padding: 15px;
 }
 
 @media (min-width: 640px){
@@ -54,17 +69,22 @@
     grid-gap: 20px;
     width: 80%;
   }
-  .slick-slide .nameOfDrink{
+  .slideshowDiv .slick-slide .nameOfDrink{
     width: 300px;
   }
 
-  .slick-list{
+  .slideshowDiv .slick-list{
     height: 400px;
     width: 300px;
   }
 
-  .slideShowImg{
+  .slideshowDiv .slideShowImg{
     width: 300px;
     height: 300px;
 } 
+
+  .slideshowDiv .nameOfDrink{
+    width: 300px;
+    font-size: 25px;
+  }
 }

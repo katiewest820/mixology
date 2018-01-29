@@ -1,17 +1,25 @@
 .helpInfoDiv{
   max-width: 60%;
   margin:auto;
-  margin-top: 5%
+  margin-top: 5%;
+  color:white;
 }
 
-.helpInfoDiv button{
+.helpInfoDiv a{
+  text-decoration:  none;
+}
+
+.helpInfoBtn{
   display: block;
-  margin: auto;
+  margin:auto;
   padding: 5px 10px;
   font-size: 18px;
+  font-weight:  bold;
+  color:white;
+  border: solid 3px white;
 }
 
-.helpInfoDiv button:hover{
+.helpInfoBtn:hover{
   color: #f39c12;
   cursor: pointer;
   border: solid 3px #f39c12;

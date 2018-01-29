@@ -4,19 +4,22 @@
   padding: 20px;
   color: white;
   border: solid 3px white;
+  margin-top: 30px;
+  text-decoration:  none;
+}
+
+.backToHome:hover{
+  text-decoration: none;
+  cursor: pointer;
+  color: #f39c12;
+  border: solid 3px #f39c12;
 }
 
 .classicsInfoDiv{
-  width: 100;
   min-height: 500px;
   max-height: fit-content;
   background-color: black;
   margin:auto;
-  padding-top: 2%;
+  padding: 30px 0px;
   min-height: -webkit-fill-available;
-}
-
-@media (min-width: 1200px){
-  
-
 }

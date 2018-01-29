@@ -1,7 +1,10 @@
 import React from 'react';
 import './searchResults.css';
+import Slider from 'react-slick';
 import axios from 'axios';
 import DrinkRecipeDetails from '../drinkRecipeDetails/drinkRecipeDetails';
+import LeftSlideshowArrow from '../leftSlideshowArrow/leftSlideshowArrow';
+import RightSlideshowArrow from '../rightSlideshowArrow/rightSlideshowArrow';
 
 export default class SearchResults extends React.Component{
   constructor(props){
@@ -31,6 +34,15 @@ closeDrinkRecipeDetails(clickedDrink){
 } 
 
   render(){
+    let settings = {
+      infinate: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      nextArrow: <RightSlideshowArrow />,
+      prevArrow: <LeftSlideshowArrow />
+    }
+
     let drinks = this.props.drinks.map((drink, index) => {
        return (
         <div key={index} className={drink.idDrink} onClick={this.grabId.bind(this, drink.idDrink)}>
@@ -55,8 +67,12 @@ closeDrinkRecipeDetails(clickedDrink){
     }else{
       return(
         <div className="drinkResultsGridContainer">
+        <h2 className="resultsCount">You have {this.props.drinks.length} results!</h2>
           <div className="drinkResultsGrid" >
-            {drinks}
+            <Slider {...settings}>
+              {drinks}
+            </Slider>
+
           </div>
         </div>  
       )
