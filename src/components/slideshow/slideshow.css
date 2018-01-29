@@ -70,7 +70,7 @@
   color: #f39c12;
 }
 
-@media (min-width: 640px){
+@media (min-width: 1150px){
 
   .slideshowDiv{
     grid-gap: 20px;

@@ -24,3 +24,7 @@
   min-height: stretch;
 }
 
+.classicsInfoDiv a{
+  text-decoration: none;
+}
+
