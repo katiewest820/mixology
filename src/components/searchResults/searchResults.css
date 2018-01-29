@@ -1,13 +1,29 @@
 .drinkResultsGridContainer{
   width: 100;
-  min-height: 500px;
+  min-height: 400px;
   max-height: fit-content;
   background-color: black;
   margin:auto;
-  margin-top: 100px;
+  margin-top: 75px;
   min-height: -webkit-fill-available;
   padding: 10%;
   min-width: fit-content;
+}
+
+.mixology{
+  color: #f39c12;
+  font-family: 'Dawning of a New Day', cursive;
+  font-size: 75px;
+  text-align: center;
+  letter-spacing: 3px;
+  margin-bottom: 0px;
+}
+
+.tagLine{
+   color: white;
+   letter-spacing: 1px;
+   font-size: 14px;
+   text-align:center;
 }
 
 .drinkResultsGrid{
@@ -53,6 +69,15 @@
 }
 
 @media (min-width: 1150px){
+
+  .mixology{
+    font-size: 100px;
+    letter-spacing: 5px;
+  }
+
+  .tagLine{
+    font-size: 20px;
+  }
 
   .drinkResultsGrid{
     margin:auto;

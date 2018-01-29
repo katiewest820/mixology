@@ -2,24 +2,26 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
   justify-content: center;
-  margin:0;
   text-align: center;
   align-self: end;
+  
+  margin:auto;
 }
 
 .slick-slider{
   display: grid;
-  grid-template-columns: 23% 60% 17%
+  grid-template-columns: 20% 60% 20%
 }
 
-.slick-slider button{
-  
-  display: inline;
-  
-  align-self: center;
-  padding: 10px;
+.slick-arrow, .slick-prev{
   color: white;
-  border: solid 2px white;
+  outline: none;
+}
+
+.slick-arrow:hover, .slick-prev:hover{
+  outline: none;
+  cursor: pointer;
+  color: #f39c12;;
 }
 
 .slick-list{
@@ -49,7 +51,8 @@
 @media (min-width: 640px){
 
   .slideshowDiv{
-    grid-gap: 8px;
+    grid-gap: 20px;
+    width: 80%;
   }
   .slick-slide .nameOfDrink{
     width: 300px;
@@ -57,7 +60,7 @@
 
   .slick-list{
     height: 400px;
-    width: 350px;
+    width: 300px;
   }
 
   .slideShowImg{

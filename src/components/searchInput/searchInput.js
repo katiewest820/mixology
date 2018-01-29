@@ -24,7 +24,7 @@ export default class SearchInput extends React.Component{
       let myInput;
       let myButton;
       if(this.state.inputVisible){
-        myInput = <input className="inputIngredient" value={this.props.value.searchInput} onChange={event => this.props.onChange(event.target.value)} type="text" placeholder="Ingrendient"/>
+        myInput = <input className="inputIngredient" value={this.props.value.searchInput} onChange={event => this.props.onChange(event.target.value)} type="text" placeholder="Ingredient/Drink Name"/>
         myButton = <button className="inputIngredientBtn" value={this.props.value.searchInput} onClick={event => this.onClick(event.target.value)} >Submit</button>
       }
 

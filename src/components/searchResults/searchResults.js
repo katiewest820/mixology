@@ -7,7 +7,6 @@ export default class SearchResults extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      drinkDetailsVisible: false,
       clickedDrink: ''
     }
   }
@@ -15,11 +14,6 @@ export default class SearchResults extends React.Component{
 shouldComponentUpdate(nextProps, nextState){
   return nextProps.drinks.length > 0;
 }
-  
-// showDrinkDetails(drinkDetailsVisible, event){
-//   console.log('yeahhhhh')
-//   //this.setState({drinkDetailsVisible: true})
-//}
 
 grabId(myId){
   console.log(myId)
@@ -37,7 +31,6 @@ closeDrinkRecipeDetails(clickedDrink){
 } 
 
   render(){
-    console.log('rendering search results')
     let drinks = this.props.drinks.map((drink, index) => {
        return (
         <div key={index} className={drink.idDrink} onClick={this.grabId.bind(this, drink.idDrink)}>
@@ -45,19 +38,24 @@ closeDrinkRecipeDetails(clickedDrink){
           <img src={drink.strDrinkThumb}/>
         </div>      
         )
-    })
+    });
     if(this.state.clickedDrink !== ''){
       return (
         <div className="drinkResultsGridContainer">
-          {/*<div className="shadowBox">*/}
             <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeDrinkRecipeDetails(clickedDrink)}/>
-          {/*</div>*/}
         </div>  
         )
+    }else if(this.props.drinks.length < 1){
+      return(
+        <div className="drinkResultsGridContainer">
+          <h1 className="mixology">Mixology</h1>
+          <p className="tagLine">What are you Drinking Tonight?</p>
+        </div>  
+      )
     }else{
       return(
         <div className="drinkResultsGridContainer">
-          <div className="drinkResultsGrid" > {/*onClick={(value) => this.showDrinkDetails(value)} value={this.state.drinkDetailsVisible}>*/}
+          <div className="drinkResultsGrid" >
             {drinks}
           </div>
         </div>  
