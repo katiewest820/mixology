@@ -17,19 +17,19 @@ export default class Classics extends React.Component{
 
   componentDidMount(){
     let self = this;
-    axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+    axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
     .then(function (response) {
       self.setState({margaritas: response.data.drinks});
     });
-    axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=mojito')
+    axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=mojito')
     .then(function (response) {
       self.setState({mojitos: response.data.drinks});
     });
-    axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=martini')
+    axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=martini')
     .then(function (response) {
       self.setState({martinis: response.data.drinks});
     });
-    axios.get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=daiquiri')
+    axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=daiquiri')
     .then(function (response) {
       self.setState({daiquiris: response.data.drinks});
     })

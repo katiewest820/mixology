@@ -25,7 +25,7 @@ export default class Dashboard extends React.Component{
         setTimeout(() => {self.fadeOutErrorMsg()}, 3000)
         return
     }
-    axios.get(`http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${submittedSearchTerm}`)
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${submittedSearchTerm}`)
     .then(function (ingredientResponse) {
       if(!ingredientResponse.data.drinks){
         self.grabOtherSubmittedInput(submittedSearchTerm);
@@ -41,7 +41,7 @@ export default class Dashboard extends React.Component{
 
   grabOtherSubmittedInput(submittedSearchTerm){
     let self = this;
-    axios.get(`http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${submittedSearchTerm}`)
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${submittedSearchTerm}`)
     .then(function (drinkNameResponse) {
       if(!drinkNameResponse.data.drinks){
         self.setState({errorMsg: true});

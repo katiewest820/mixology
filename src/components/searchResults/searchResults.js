@@ -20,7 +20,7 @@ export default class SearchResults extends React.Component{
 
   grabId(myId){
     let self = this;
-    axios.get(`http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${myId}`)
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${myId}`)
     .then(function (response) {
       self.setState({clickedDrink: response.data.drinks[0]});
     });
