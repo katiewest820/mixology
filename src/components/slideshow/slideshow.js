@@ -16,18 +16,15 @@ export default class Slideshow extends React.Component{
   }
 
   grabId(myId){
-  console.log(myId)
   let self = this;
   axios.get(`http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${myId}`)
     .then(function (response) {
-      console.log(response);
       self.setState({clickedDrink: response.data.drinks[0]})
-      console.log(self.state.clickedDrink)
-     });
+    });
   }
 
   closeClassicsDrinkRecipeDetails(clickedDrink){
-    this.setState({clickedDrink: ''})
+    this.setState({clickedDrink: ''});
   }
 
   render(){
@@ -43,35 +40,39 @@ export default class Slideshow extends React.Component{
       return (
         <div key={index}  onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img  className="slideShowImg" src={drink.strDrinkThumb} />
-        </div>)
+          <img alt="Margaritas" className="slideShowImg" src={drink.strDrinkThumb} />
+        </div>
+      )
     });
     let mojitos = this.props.drinks.mojitos.map((drink, index) => {
       return (
         <div key={index} onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img  className="slideShowImg" src={drink.strDrinkThumb} />
-        </div>)
+          <img alt="Mojitos" className="slideShowImg" src={drink.strDrinkThumb} />
+        </div>
+      )
     });
     let daiquiris = this.props.drinks.daiquiris.map((drink, index) => {
       return (
         <div key={index} onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img  className="slideShowImg" src={drink.strDrinkThumb} />
-        </div>)
+          <img alt="Daiquiris" className="slideShowImg" src={drink.strDrinkThumb} />
+        </div>
+      )
     });
     let martinis = this.props.drinks.martinis.map((drink, index) => {
       return (
         <div key={index} onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img  className="slideShowImg" src={drink.strDrinkThumb} />
-        </div>)
+          <img alt="Martinis" className="slideShowImg" src={drink.strDrinkThumb} />
+        </div>
+      )
     });
 
     if(this.state.clickedDrink !== ''){
       return(
-          <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeClassicsDrinkRecipeDetails(clickedDrink)}/>
-        )
+        <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeClassicsDrinkRecipeDetails(clickedDrink)}/>
+      )
     }else{
       return(
         <div className="slideshowDiv">

@@ -14,23 +14,20 @@ export default class SearchResults extends React.Component{
     }
   }
 
-shouldComponentUpdate(nextProps, nextState){
-  return nextProps.drinks.length > 0;
-}
+  shouldComponentUpdate(nextProps, nextState){
+    return nextProps.drinks.length > 0;
+  }
 
-grabId(myId){
-  console.log(myId)
-  let self = this;
-  axios.get(`http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${myId}`)
+  grabId(myId){
+    let self = this;
+    axios.get(`http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${myId}`)
     .then(function (response) {
-      console.log(response);
-      self.setState({clickedDrink: response.data.drinks[0]})
-      console.log(self.state.clickedDrink)
-     });
-}
+      self.setState({clickedDrink: response.data.drinks[0]});
+    });
+  }
 
 closeDrinkRecipeDetails(clickedDrink){
-  this.setState({clickedDrink: ''})
+  this.setState({clickedDrink: ''});
 } 
 
   render(){
@@ -44,19 +41,19 @@ closeDrinkRecipeDetails(clickedDrink){
     }
 
     let drinks = this.props.drinks.map((drink, index) => {
-       return (
+      return (
         <div key={index} className={drink.idDrink} onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img src={drink.strDrinkThumb}/>
+          <img alt="Drink" src={drink.strDrinkThumb}/>
         </div>      
-        )
+      )
     });
     if(this.state.clickedDrink !== ''){
       return (
         <div className="drinkResultsGridContainer">
-            <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeDrinkRecipeDetails(clickedDrink)}/>
+          <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeDrinkRecipeDetails(clickedDrink)}/>
         </div>  
-        )
+      )
     }else if(this.props.drinks.length < 1){
       return(
         <div className="drinkResultsGridContainer">
@@ -72,7 +69,6 @@ closeDrinkRecipeDetails(clickedDrink){
             <Slider {...settings}>
               {drinks}
             </Slider>
-
           </div>
         </div>  
       )

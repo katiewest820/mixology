@@ -4,7 +4,6 @@ import Dashboard from '../dashboard/dashboard';
 import Help from '../help/help';
 import Classics from '../classics/classics';
 export default class Main extends React.Component{
-
   render(){
     return(
       <main>
@@ -16,5 +15,4 @@ export default class Main extends React.Component{
       </main>
     )
   }
-
 }

@@ -3,7 +3,6 @@ import './help.css';
 import {Link} from 'react-router-dom';
 
 export default function Help(props){
-
 return(
   <div className="classicsInfoDiv">
     <div className="helpInfoDiv" >

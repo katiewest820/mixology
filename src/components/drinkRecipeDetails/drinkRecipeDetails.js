@@ -8,37 +8,34 @@ export default class DrinkRecipeDetails extends React.Component{
       ingredientArr: [],
       quantityArr: []
     }
-    console.log(this)
   }
 
-   componentDidMount(){
+  componentDidMount(){
     let ingredientsArr = [];
     let instructionsArr = [];
      for(let i = 1; i < 16; i++){
-      let str = `strIngredient${i}`
+      let str = `strIngredient${i}`;
        if(this.props.clickedDrink[str] !== null && this.props.clickedDrink[str].length > 2 ){
-        ingredientsArr.push(this.props.clickedDrink[str])
-         console.log(ingredientsArr)
+        ingredientsArr.push(this.props.clickedDrink[str]);
        }
      }
      for(let i = 1; i < 16; i++){
-      let str = `strMeasure${i}`
+      let str = `strMeasure${i}`;
        if(this.props.clickedDrink[str] !== null && this.props.clickedDrink[str].length > 2 ){
-        instructionsArr.push(this.props.clickedDrink[str])
-         console.log(instructionsArr)
+        instructionsArr.push(this.props.clickedDrink[str]);
        }
      }
-    this.setState({ingredientArr: ingredientsArr}) 
-    this.setState({quantityArr: instructionsArr})
-   }
+    this.setState({ingredientArr: ingredientsArr}); 
+    this.setState({quantityArr: instructionsArr});
+  }
 
   render(){
     let ingredientList = this.state.ingredientArr.map((ing, index) => {
-      return <p key={index}>{ing}</p>
-    })
+      return <p key={index}>{ing}</p>;
+    });
     let quantityList = this.state.quantityArr.map((qua, index) => {
-      return <p key={index}>{qua}</p>
-    })
+      return <p key={index}>{qua}</p>;
+    });
     return(
       <div className="drinkDetailsDiv">
         <i className="fa fa-times closeDrinkRecipeDetails" aria-hidden="true" onClick={this.props.onClick}></i>

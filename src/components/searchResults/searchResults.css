@@ -32,51 +32,20 @@
 
 .drinkResultsGrid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
   justify-content:center;
-  justify-items: center;
   margin: 5%;
   padding: 40px 0;
 }
 
-.drinkResultsGrid .slick-slider{
-  width: 350px;
+.drinkResultsGrid .slick-list{
   height: fit-content;
-  align-items: center;
 }
-
 .drinkResultsGrid .slick-slide{
   width: 200px;
-}
-.slick-list, .slick-arrow{
-  max-height: fit-content;
-  align-self: center;
-  display:  inline-block;
 }
 
 .drinkResultsGrid img{
     width: 200px;
-}
-
-.drinkResultsGrid .nameOfDrink{
-  width: 200px;
-  position: absolute;
-  margin: 0;
-  bottom: 1%;
-  color:black;
-  font-weight: bold;
-  font-size: 20px;
-  background-color: white;
-  opacity: .6;
-  box-sizing: border-box;
-  min-height: 60px;
-  max-height: fit-content;
-  padding: 15px;
-}
-
-.nameOfDrink:hover{
-  cursor: pointer;
-  color: #f39c12;
 }
 
 @media (min-width: 1150px){
@@ -103,18 +72,9 @@
     font-size: 30px;
   }
 
-  .drinkResultsGrid .slick-slider{
-    width: 600px;
-  }
-
   .drinkResultsGridContainer{
     margin-top: 10px;
     padding: 60px;
-  }
-
-  .drinkResultsGrid .nameOfDrink{
-    width: 300px;
-    font-size: 25px;
   }
 
   .drinkResultsGrid .slick-slide, .drinkResultsGrid .slick-list{

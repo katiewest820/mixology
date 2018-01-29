@@ -15,8 +15,6 @@ export default class Dashboard extends React.Component{
       drinks: [],
       errorMsg: false,
     }
-    
-    console.log(this.state)
   }
 
   grabSubmittedInput(submittedSearchTerm){
@@ -24,55 +22,50 @@ export default class Dashboard extends React.Component{
     let self = this;
     if(!submittedSearchTerm){
       self.setState({errorMsg: true})
-        console.log(self.state.errorMsg)
         setTimeout(() => {self.fadeOutErrorMsg()}, 3000)
         return
-      }
-  
+    }
     axios.get(`http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${submittedSearchTerm}`)
-      .then(function (ingredientResponse) {
-        console.log(ingredientResponse);
-        if(!ingredientResponse.data.drinks){
-          self.grabOtherSubmittedInput(submittedSearchTerm)
-          return
-        }
-        self.setState({drinks: ingredientResponse.data.drinks})
-        self.setState({searchInput: ''})
-      })
+    .then(function (ingredientResponse) {
+      if(!ingredientResponse.data.drinks){
+        self.grabOtherSubmittedInput(submittedSearchTerm);
+        return;
+      }
+      self.setState({drinks: ingredientResponse.data.drinks});
+      self.setState({searchInput: ''});
+    })
     .catch(function (error) {
-      console.log(error);
+      console.log('Something bad happened')
     });
   }
 
-grabOtherSubmittedInput(submittedSearchTerm){
-  let self = this;
-  axios.get(`http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${submittedSearchTerm}`)
+  grabOtherSubmittedInput(submittedSearchTerm){
+    let self = this;
+    axios.get(`http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${submittedSearchTerm}`)
     .then(function (drinkNameResponse) {
-      console.log(drinkNameResponse);
       if(!drinkNameResponse.data.drinks){
-        self.setState({errorMsg: true})
-        console.log(self.state.errorMsg)
-        setTimeout(() => {self.fadeOutErrorMsg()}, 3000)
-        return
+        self.setState({errorMsg: true});
+        setTimeout(() => {self.fadeOutErrorMsg()}, 3000);
+        return;
       }
-      self.setState({drinks: drinkNameResponse.data.drinks})
-      self.setState({searchInput: ''})
+      self.setState({drinks: drinkNameResponse.data.drinks});
+      self.setState({searchInput: ''});
     })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    .catch(function (error) {
+      console.log('Something bad happened');
+    });
+  }
 
   fadeOutErrorMsg(){
-    this.setState({errorMsg:false})
+    this.setState({errorMsg:false});
   }
 
   grabEnteredInput(searchInput){
-    this.setState({searchInput})
+    this.setState({searchInput});
   }
 
   render(){
-    let errorMsg = <h1 className="errorMsg">No results found. Please try again</h1>
+    let errorMsg = <h1 className="errorMsg">No results found. Please try again</h1>;
     if(this.state.errorMsg === true){
       return(
         <main className="mainDiv">

@@ -4,8 +4,8 @@
   padding: 20px;
   color: white;
   border: solid 3px white;
-  margin-top: 30px;
   text-decoration:  none;
+  margin-top: 20px;
 }
 
 .backToHome:hover{
@@ -21,5 +21,6 @@
   background-color: black;
   margin:auto;
   padding: 30px 0px;
-  min-height: -webkit-fill-available;
+  min-height: stretch;
 }
+
