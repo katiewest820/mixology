@@ -1,14 +1,13 @@
 import React from 'react';
 import './searchResults.css';
-import Slider from 'react-slick';
 import axios from 'axios';
 import DrinkRecipeDetails from '../drinkRecipeDetails/drinkRecipeDetails';
-import LeftSlideshowArrow from '../leftSlideshowArrow/leftSlideshowArrow';
-import RightSlideshowArrow from '../rightSlideshowArrow/rightSlideshowArrow';
+import ImageGallery from 'react-image-gallery';
+import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css';
 
 export default class SearchResults extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
     this.state={
       clickedDrink: ''
     }
@@ -30,30 +29,41 @@ closeDrinkRecipeDetails(clickedDrink){
   this.setState({clickedDrink: ''});
 } 
 
+ onImageClick(item){
+  return (
+    <div className='image-gallery-image'>
+      <img
+        alt={item.description}
+        src={item.original}
+      />
+        <a className='image-gallery-description hoverStyle' onClick={() => this.grabId(item.link)}>
+          {item.description}
+        </a>   
+    </div>
+  )
+}
+
   render(){
-    let settings = {
-      infinate: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      nextArrow: <RightSlideshowArrow />,
-      prevArrow: <LeftSlideshowArrow />
+    let images = [];
+    if(this.props.drinks.length > 1){
+      for(let i = 0; i < this.props.drinks.length; i++){
+        let imageURL = `https://${this.props.drinks[i].strDrinkThumb}`;
+        images.push({
+          original: imageURL,
+          thumbnail: imageURL,
+          description: this.props.drinks[i].strDrink,
+          link: this.props.drinks[i].idDrink
+        })
+      }
     }
 
-    let drinks = this.props.drinks.map((drink, index) => {
-      return (
-        <div key={index} className={drink.idDrink} onClick={this.grabId.bind(this, drink.idDrink)}>
-          <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img alt="Drink" src={drink.strDrinkThumb}/>
-        </div>      
-      )
-    });
     if(this.state.clickedDrink !== ''){
       return (
         <div className="drinkResultsGridContainer">
           <DrinkRecipeDetails clickedDrink={this.state.clickedDrink} onClick={(clickedDrink) => this.closeDrinkRecipeDetails(clickedDrink)}/>
         </div>  
       )
+
     }else if(this.props.drinks.length < 1){
       return(
         <div className="drinkResultsGridContainer">
@@ -64,13 +74,8 @@ closeDrinkRecipeDetails(clickedDrink){
     }else{
       return(
         <div className="drinkResultsGridContainer">
-        <h2 className="resultsCount">You have {this.props.drinks.length} results!</h2>
-          <div className="drinkResultsGrid" >
-            <Slider {...settings}>
-              {drinks}
-            </Slider>
-          </div>
-        </div>  
+          <ImageGallery items={images} renderItem={this.onImageClick.bind(this)}/>
+        </div>
       )
     }
   }

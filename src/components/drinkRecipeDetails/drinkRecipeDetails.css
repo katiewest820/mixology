@@ -8,6 +8,11 @@
   text-align: center;
 }
 
+.drinkDetailsDiv img{
+  height: 200px;
+  border-radius: 100%
+}
+
 .closeDrinkRecipeDetails{
   position: absolute; 
   top:3%;
@@ -46,6 +51,10 @@
   .drinkDetailsDiv{
     width: 55%;
     font-size: 140%;
+  }
+
+  .drinkDetailsDiv img{
+    height: 300px;
   }
 
   .closeDrinkRecipeDetails{

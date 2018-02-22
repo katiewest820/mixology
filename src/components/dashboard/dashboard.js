@@ -1,7 +1,6 @@
 import React from 'react';
 import './dashboard.css';
 import axios from 'axios';
-
 import SearchInput from '../searchInput/searchInput';
 import Header from '../header/header';
 import SearchResults from '../searchResults/searchResults';
@@ -78,13 +77,13 @@ export default class Dashboard extends React.Component{
       )
     }
     else{
-        return(
-          <main className="mainDiv">
-            <Header />
-            <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
-            <SearchResults drinks={this.state.drinks} />
-          </main>
-        )
+      return(
+        <main className="mainDiv">
+          <Header />
+          <SearchInput value={this.state} onClick={value => this.grabSubmittedInput(value)} onChange={value => this.grabEnteredInput(value)}/>
+          <SearchResults drinks={this.state.drinks} />
+        </main>
+      )
     }
   }
 }
