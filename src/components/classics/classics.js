@@ -20,14 +20,23 @@ export default class Classics extends React.Component{
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
     .then(function (response) {
       self.setState({margaritas: response.data.drinks});
+    })
+    .catch(function (error) {
+      console.log('Something bad happened');
     });
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=mojito')
     .then(function (response) {
       self.setState({mojitos: response.data.drinks});
+    })
+    .catch(function (error) {
+      console.log('Something bad happened');
     });
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=martini')
     .then(function (response) {
       self.setState({martinis: response.data.drinks});
+    })
+    .catch(function (error) {
+      console.log('Something bad happened');
     });
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=daiquiri')
     .then(function (response) {
@@ -52,7 +61,6 @@ export default class Classics extends React.Component{
     }else{
       return(
         <div className="classicsInfoDiv" >
-          <Link to="/"><button className="backToHome">Back to Home</button></Link>
         </div>
       )
     }
