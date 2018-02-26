@@ -47,7 +47,7 @@ closeDrinkRecipeDetails(clickedDrink){
     let images = [];
     if(this.props.drinks.length > 1){
       for(let i = 0; i < this.props.drinks.length; i++){
-        let imageURL = `https://${this.props.drinks[i].strDrinkThumb}`;
+        let imageURL = `${this.props.drinks[i].strDrinkThumb}`;
         images.push({
           original: imageURL,
           thumbnail: imageURL,

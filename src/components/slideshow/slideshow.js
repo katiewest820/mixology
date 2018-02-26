@@ -39,7 +39,7 @@ export default class Slideshow extends React.Component{
       return (
         <div key={index}  onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img alt="Margaritas" className="slideShowImg" src={`https://${drink.strDrinkThumb}`} />
+          <img alt="Margaritas" className="slideShowImg" src={`${drink.strDrinkThumb}`} />
         </div>
       )
     });
@@ -47,7 +47,7 @@ export default class Slideshow extends React.Component{
       return (
         <div key={index} onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img alt="Mojitos" className="slideShowImg" src={`https://${drink.strDrinkThumb}`} />
+          <img alt="Mojitos" className="slideShowImg" src={`${drink.strDrinkThumb}`} />
         </div>
       )
     });
@@ -55,7 +55,7 @@ export default class Slideshow extends React.Component{
       return (
         <div key={index} onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img alt="Daiquiris" className="slideShowImg" src={`https://${drink.strDrinkThumb}`} />
+          <img alt="Daiquiris" className="slideShowImg" src={`${drink.strDrinkThumb}`} />
         </div>
       )
     });
@@ -63,7 +63,7 @@ export default class Slideshow extends React.Component{
       return (
         <div key={index} onClick={this.grabId.bind(this, drink.idDrink)}>
           <h2 className="nameOfDrink">{drink.strDrink}</h2>
-          <img alt="Martinis" className="slideShowImg" src={`https://${drink.strDrinkThumb}`} />
+          <img alt="Martinis" className="slideShowImg" src={`${drink.strDrinkThumb}`} />
         </div>
       )
     });

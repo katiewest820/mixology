@@ -38,7 +38,7 @@ export default class DrinkRecipeDetails extends React.Component{
     });
     return(
       <div className="drinkDetailsDiv">
-        <img alt="" src={`https://${this.props.clickedDrink.strDrinkThumb}`}/>
+        <img alt="" src={`${this.props.clickedDrink.strDrinkThumb}`}/>
         <i className="fa fa-times closeDrinkRecipeDetails" aria-hidden="true" onClick={this.props.onClick}></i>
         <h1 className="drinkName">{this.props.clickedDrink.strDrink}</h1>
         <div className="drinkIngredients">
