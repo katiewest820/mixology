@@ -1,4 +1,4 @@
-# Ultimate Trivia
+# Mixology
 
 Check out Mixology [HERE](https://mixology-drink-recipes.netlify.com/)
 
